@@ -11,6 +11,9 @@ font_data = ExtResource( 2 )
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -9.19474 ]
+}
 ipInputNodePath = NodePath("VBoxContainer/MarginContainer2/GridContainer/txtIP")
 GameScene = ExtResource( 4 )
 
@@ -26,9 +29,8 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 15.0
 margin_right = 200.0
-margin_bottom = 103.0
+margin_bottom = 88.0
 custom_constants/margin_top = 50
 __meta__ = {
 "_edit_use_anchors_": false
@@ -45,9 +47,9 @@ text = "Escape Room!"
 align = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 107.0
+margin_top = 92.0
 margin_right = 200.0
-margin_bottom = 207.0
+margin_bottom = 192.0
 custom_constants/margin_top = 50
 __meta__ = {
 "_edit_use_anchors_": false
