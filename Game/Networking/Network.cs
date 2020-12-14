@@ -140,7 +140,8 @@ public class Network : Node
         // TODO populate player data
         RegisterPlayer(1, new Player() {
             Name = "ServerPlayer",
-            NetworkId = 1
+            NetworkId = 1,
+            Color = new Color(0, 0, 0)
         });
     }
 
@@ -151,7 +152,8 @@ public class Network : Node
 
         // TODO configurable Player object
         Players.Add(GetTree().GetNetworkUniqueId(), new Player() {
-            Name = "ClientPlayer"
+            Name = "ClientPlayer",
+            Color = new Color(1, 1, 1)
         });
 
         // Register ourselves with the server.
