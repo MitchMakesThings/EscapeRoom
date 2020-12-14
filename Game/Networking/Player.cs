@@ -16,16 +16,19 @@ public class Player : Godot.Object
         return returnVal;
     }
 
-    public void PopulateFromGodotDictionary(Godot.Collections.Dictionary<string, object> dict) {
+    public static Player PopulateFromGodotDictionary(Godot.Collections.Dictionary<string, object> dict) {
+        Player player = new Player();
+
         object data;
         dict.TryGetValue("Name", out data);
-        Name = (string)data;
+        player.Name = (string)data;
 
         dict.TryGetValue("NetworkId", out data);
-        NetworkId = (int)data;
+        player.NetworkId = (int)data;
 
         dict.TryGetValue("Color", out data);
-        Color = (Color)data;
+        player.Color = (Color)data;
 
+        return player;
     }
 }

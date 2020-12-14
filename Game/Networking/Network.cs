@@ -68,11 +68,9 @@ public class Network : Node
 
     // All clients will call this on the server when they first connect
     [Remote]
-    public void NetworkRegisterPlayer(Godot.Collections.Dictionary<string, object> encodedNewPlayer/*string newPlayerJson*/) {
+    public void NetworkRegisterPlayer(Godot.Collections.Dictionary<string, object> encodedNewPlayer) {
 
-        //Player newPlayer = JsonConvert.DeserializeObject<Player>(newPlayerJson);
-        Player newPlayer = new Player();
-        newPlayer.PopulateFromGodotDictionary(encodedNewPlayer);
+        Player newPlayer = Player.PopulateFromGodotDictionary(encodedNewPlayer);
 
         // Get the unique identifier of the remote system calling this method
         int callerNetworkId = GetTree().GetRpcSenderId();
@@ -122,7 +120,7 @@ public class Network : Node
     }
 
 
-    // Called (by Godot networking) on EVERYONE when a player connects
+    // Called (by Godot networking) on EVERYONE when a new player connects
     private void _on_player_connected(int id) {
 
     }
@@ -158,8 +156,7 @@ public class Network : Node
 
         // Register ourselves with the server.
         // It'll then tell all the other players about us
-        // Using .First() because I'm lazy, it's good to know, and we're guaranteed to be the only one in the dictionary at this stage
-        //string json = JsonConvert.SerializeObject(Players.Values.First());
+        // Using .First() because I'm lazy, it's good to know about LINQ, and we're guaranteed to be the only one in the dictionary at this stage
         RpcId(1, nameof(NetworkRegisterPlayer), Players.Values.First().ToGodotDictionary());
     }
 
